@@ -18,4 +18,4 @@ COPY --from=builder /go/bin/bird_exporter /
 
 EXPOSE 9324
 
-ENTRYPOINT ["/bird_exporter"]
+ENTRYPOINT ["/bird_exporter", "-format.new", "-bird.v2"]
