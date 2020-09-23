@@ -25,23 +25,38 @@ docker run -d -p 179:179 --name my_bird \
 acorso/bird
 ```
 
-## Example
+***Tips***
+I often link my bird socket to the bird-exporter (prometheus), to do so, I attach a directory to share the socket.
 
 ```
 docker run -d -p 179:179 --name my_bird \
+--privileged --restart=always \
+-v ./my_directory:/etc/bird:rw \
+-v ./shared_socket:/var/run:rw \
+acorso/bird
+```
+
+
+## Example
+
+```
+> $ docker run -d -p 179:179 --name my_bird \
 --privileged --restart=always \
 -v ~/project/bird/conf:/etc/bird:rw \
 acorso/bird
 8d42f923bb813671e683e22ae2d5bffc819dd023089d6ec370481a4d573e1f4b
 
-docker ps
+
+> $ docker ps
 CONTAINER ID        IMAGE               COMMAND                  CREATED             STATUS              PORTS                  NAMES
 8d42f923bb81        acorso/bird         "bird -c /etc/bird/b…"   4 seconds ago       Up 3 seconds        0.0.0.0:179->179/tcp   my_bird
 
-docker logs my_bird
+
+> $ docker logs my_bird
 bird: Started
 
-docker exec -it my_bird birdc show protocol
+
+> $ docker exec -it my_bird birdc show protocol
 BIRD 2.0.7 ready.
 Name       Proto      Table      State  Since         Info
 device1    Device     ---        up     10:02:30.910

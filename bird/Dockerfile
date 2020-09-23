@@ -24,8 +24,6 @@ RUN cd bird-v2.0.7 && \
   make
 
 
-MAINTAINER Alexandre Corso <alexandre@acorso.fr>
-
 EXPOSE 179
 
 FROM debian:buster-slim
