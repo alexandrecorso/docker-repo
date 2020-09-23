@@ -11,7 +11,7 @@ This image is based on the 2.0.7 version of BIRD: https://gitlab.nic.cz/labs/bir
 You need to provide a configuration file named `bird.conf`, the best way is to provide the directory where you store your configuration.
 
 ```
-docker build . acorso/bird
+docker build . -t acorso/bird
 ```
 
 ## Run
@@ -21,7 +21,7 @@ You need to provide a configuration file named `bird.conf`, the best way is to p
 ```
 docker run -d -p 179:179 --name my_bird \
 --privileged --restart=always \
--v /my_directory:/etc/bird:rw \
+-v ./my_directory:/etc/bird:rw \
 acorso/bird
 ```
 
