@@ -1,8 +1,11 @@
 # Tag latest
 This tag refers to the latest version of bird and debian available when I built images
 
+# Tag 2.0.9
+This image is based on the 2.0.9 version of BIRD: https://gitlab.nic.cz/labs/bird/-/tree/v2.0.9
+
 # Tag 2.0.8
-This image is based on the 2.0.7 version of BIRD: https://gitlab.nic.cz/labs/bird/-/tree/v2.0.8
+This image is based on the 2.0.8 version of BIRD: https://gitlab.nic.cz/labs/bird/-/tree/v2.0.8
 
 # Tag 2.0.7
 This image is based on the 2.0.7 version of BIRD: https://gitlab.nic.cz/labs/bird/-/tree/v2.0.7
@@ -24,9 +27,23 @@ You need to provide a configuration file named `bird.conf`, the best way is to p
 ```
 docker run -d -p 179:179 --name my_bird \
 --privileged --restart=always \
--v ./my_directory:/etc/bird:rw \
+-v `pwd`:/etc/bird:rw \
 acorso/bird
 ```
+
+You can check the status
+```
+> $ docker exec -it my_bird birdc show status
+BIRD 2.0.9 ready.
+BIRD 2.0.9
+Router ID is 172.17.0.2
+Hostname is 549a5c51c893
+Current server time is 2022-10-10 03:18:06.438
+Last reboot on 2022-10-10 03:17:17.132
+Last reconfiguration on 2022-10-10 03:17:17.132
+Daemon is up and running
+```
+
 
 ***Tips***
 I often link my bird socket to the bird-exporter (prometheus), to do so, I attach a directory to share the socket.
