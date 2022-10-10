@@ -14,10 +14,10 @@ RUN apt update && apt install -y \
   libssh-dev \
   m4 
 
-RUN curl -O -L https://gitlab.labs.nic.cz/labs/bird/-/archive/v2.0.9/bird-v2.0.9.zip
-RUN unzip bird-v2.0.9.zip
+RUN curl -O -L https://gitlab.nic.cz/labs/bird/-/archive/2.0.10/bird-2.0.10.zip
+RUN unzip bird-2.0.10.zip && mv bird-2.0.10 bird-src
 
-RUN cd bird-v2.0.9 && \
+RUN cd bird-src && \
   autoconf && \
   autoheader && \
   ./configure --sysconfdir=/etc/bird/ --localstatedir=/var && \
@@ -34,9 +34,9 @@ RUN apt update && apt install -y \
 
 RUN mkdir /etc/bird && mkdir -p /var/run
 
-COPY --from=builder /bird-v2.0.9/bird /usr/local/sbin/bird
-COPY --from=builder /bird-v2.0.9/birdc /usr/local/sbin/birdc
-COPY --from=builder /bird-v2.0.9/birdcl /usr/local/sbin/birdcl
-COPY --from=builder /bird-v2.0.9/doc/bird.conf.example /etc/bird/bird.conf
+COPY --from=builder /bird-src/bird /usr/local/sbin/bird
+COPY --from=builder /bird-src/birdc /usr/local/sbin/birdc
+COPY --from=builder /bird-src/birdcl /usr/local/sbin/birdcl
+COPY --from=builder /bird-src/doc/bird.conf.example /etc/bird/bird.conf
 
 ENTRYPOINT [ "bird", "-d", "-s", "/var/run/bird.ctl"]

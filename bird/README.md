@@ -1,6 +1,9 @@
 # Tag latest
 This tag refers to the latest version of bird and debian available when I built images
 
+# Tag 2.0.10
+This image is based on the 2.0.10 version of BIRD: https://gitlab.nic.cz/labs/bird/-/tree/2.0.10
+
 # Tag 2.0.9
 This image is based on the 2.0.9 version of BIRD: https://gitlab.nic.cz/labs/bird/-/tree/v2.0.9
 
@@ -34,13 +37,13 @@ acorso/bird
 You can check the status
 ```
 > $ docker exec -it my_bird birdc show status
-BIRD 2.0.9 ready.
-BIRD 2.0.9
+BIRD 2.0.10 ready.
+BIRD 2.0.10
 Router ID is 172.17.0.2
-Hostname is 549a5c51c893
-Current server time is 2022-10-10 03:18:06.438
-Last reboot on 2022-10-10 03:17:17.132
-Last reconfiguration on 2022-10-10 03:17:17.132
+Hostname is aaca728745f4
+Current server time is 2022-10-10 03:40:03.069
+Last reboot on 2022-10-10 03:40:00.665
+Last reconfiguration on 2022-10-10 03:40:00.665
 Daemon is up and running
 ```
 
