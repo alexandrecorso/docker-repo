@@ -1,6 +1,9 @@
 # Tag latest
 This tag refers to the latest version of bird and debian available when I built images
 
+# Tag 2.0.11
+This image is based on the 2.0.11 version of BIRD: https://gitlab.nic.cz/labs/bird/-/tree/v2.0.11
+
 # Tag 2.0.10
 This image is based on the 2.0.10 version of BIRD: https://gitlab.nic.cz/labs/bird/-/tree/2.0.10
 
@@ -30,20 +33,19 @@ You need to provide a configuration file named `bird.conf`, the best way is to p
 ```
 docker run -d -p 179:179 --name my_bird \
 --privileged --restart=always \
--v `pwd`:/etc/bird:rw \
 acorso/bird
 ```
 
 You can check the status
 ```
 > $ docker exec -it my_bird birdc show status
-BIRD 2.0.10 ready.
-BIRD 2.0.10
+BIRD 2.0.11 ready.
+BIRD 2.0.11
 Router ID is 172.17.0.2
-Hostname is aaca728745f4
-Current server time is 2022-10-10 03:40:03.069
-Last reboot on 2022-10-10 03:40:00.665
-Last reconfiguration on 2022-10-10 03:40:00.665
+Hostname is 0576a450a9da
+Current server time is 2022-12-19 12:08:21.698
+Last reboot on 2022-12-19 12:07:59.622
+Last reconfiguration on 2022-12-19 12:07:59.622
 Daemon is up and running
 ```
 
