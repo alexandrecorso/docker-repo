@@ -14,8 +14,8 @@ RUN apt update && apt install -y \
   libssh-dev \
   m4 
 
-RUN curl -O -L https://gitlab.nic.cz/labs/bird/-/archive/v2.0.11/bird-v2.0.11.zip
-RUN unzip bird-v2.0.11.zip && mv bird-v2.0.11 bird-src
+RUN curl -O -L https://gitlab.nic.cz/labs/bird/-/archive/v2.0.12/bird-v2.0.12.zip
+RUN unzip bird-v2.0.12.zip && mv bird-v2.0.12 bird-src
 
 RUN cd bird-src && \
   autoconf && \
