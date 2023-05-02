@@ -1,4 +1,4 @@
-FROM debian:buster-slim as builder
+FROM debian:bullseye-slim as builder
 
 MAINTAINER Alexandre Corso <alexandre@acorso.fr>
 
@@ -26,7 +26,7 @@ RUN cd bird-src && \
 
 EXPOSE 179
 
-FROM debian:buster-slim
+FROM debian:bullseye-slim
 
 RUN apt update && apt install -y \
   libssh-4 \
