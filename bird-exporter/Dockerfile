@@ -2,9 +2,9 @@ FROM golang:latest as builder
 
 MAINTAINER Alexandre Corso <alexandre@acorso.fr>
 
-RUN apt install -y git
-
-RUN git clone https://github.com/czerwonk/bird_exporter.git
+RUN apt update && apt install -y unzip
+RUN curl -L https://github.com/czerwonk/bird_exporter/archive/refs/tags/1.4.2.zip --output bird_exporter.zip
+RUN unzip bird_exporter.zip -d extract_dir && mv extract_dir/* bird_exporter
 
 WORKDIR bird_exporter
 

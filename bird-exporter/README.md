@@ -2,6 +2,9 @@
 This tag refers to the latest version of bird-exporter
 For BIRD v2 (by default)
 
+# Tag 1.4.2
+This image is based on v1.4.2 of bird-exporter - https://github.com/czerwonk/bird_exporter/releases/tag/1.4.2
+
 # Tag 1.2.5
 This image is based on v1.2.5 of bird-exporter - https://github.com/czerwonk/bird_exporter/releases/tag/1.2.5
 
@@ -33,13 +36,11 @@ acorso/bird-exporter
 f44ffeb6451d358c3defe0709e04162c8b2bc9b827ef9738583bbfbef306f6c4
 
 
-> $ docker logs my_bird-exporter 
+> $ docker logs bird-exporter1
+time="2023-06-23T13:22:45Z" level=info msg="Starting bird exporter (Version: 1.4.2)"
+time="2023-06-23T13:22:45Z" level=info msg="Listening for /metrics on :9324 (TLS: false)"
 
-time="2020-09-23T13:22:10Z" level=info msg="Starting bird exporter (Version: 1.2.5)\n" source="main.go:63"
-time="2020-09-23T13:22:10Z" level=info msg="Listening for /metrics on :9324\n" source="main.go:82"
-
-
-> $ curl localhost:9325/metrics   
+> $ curl localhost:9324/metrics
 
 # HELP bird_protocol_changes_update_export_accept_count Number of outgoing updates being accepted
 # TYPE bird_protocol_changes_update_export_accept_count gauge
