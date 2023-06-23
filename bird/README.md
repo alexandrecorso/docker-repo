@@ -48,13 +48,13 @@ acorso/bird
 You can check the status
 ```
 > $ docker exec -it my_bird birdc show status
-BIRD 2.0.11 ready.
-BIRD 2.0.11
+BIRD 2.13 ready.
+BIRD 2.13
 Router ID is 172.17.0.2
-Hostname is 0576a450a9da
-Current server time is 2022-12-19 12:08:21.698
-Last reboot on 2022-12-19 12:07:59.622
-Last reconfiguration on 2022-12-19 12:07:59.622
+Hostname is 0926d78769f6
+Current server time is 2023-06-23 12:44:06.297
+Last reboot on 2023-06-23 12:44:00.783
+Last reconfiguration on 2023-06-23 12:44:00.783
 Daemon is up and running
 ```
 
@@ -91,7 +91,7 @@ bird: Started
 
 
 > $ docker exec -it my_bird birdc show protocol
-BIRD 2.0.7 ready.
+BIRD 2.13 ready.
 Name       Proto      Table      State  Since         Info
 device1    Device     ---        up     10:02:30.910
 peer1      BGP        ---        start  10:02:30.910  Connect
