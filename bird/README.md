@@ -1,6 +1,9 @@
 # Tag latest
 This tag refers to the latest version of bird and debian available when I built images
 
+# Tag 3.0-alpha2
+This image is based on the 3.0-alpha2 version of BIRD: https://gitlab.nic.cz/labs/bird/-/tree/v3.0-alpha2
+
 # Tag 2.13.1
 This image is based on the 2.13.1 version of BIRD: https://gitlab.nic.cz/labs/bird/-/tree/v2.13.1
 
