@@ -1,4 +1,4 @@
-FROM debian:bullseye-slim as builder
+FROM debian:bookworm-slim as builder
 
 MAINTAINER Alexandre Corso <alexandre@acorso.fr>
 
@@ -14,8 +14,8 @@ RUN apt update && apt install -y \
   libssh-dev \
   m4 
 
-RUN curl -O -L https://gitlab.nic.cz/labs/bird/-/archive/v2.13/bird-v2.13.zip
-RUN unzip bird-v2.13.zip && mv bird-v2.13 bird-src
+RUN curl -O -L https://gitlab.nic.cz/labs/bird/-/archive/v2.13/bird-v2.13.1.zip
+RUN unzip bird-v2.13.1.zip -d bird-export && mv bird-export/* bird-src
 
 RUN cd bird-src && \
   autoconf && \
@@ -26,7 +26,7 @@ RUN cd bird-src && \
 
 EXPOSE 179
 
-FROM debian:bullseye-slim
+FROM debian:bookworm-slim
 
 RUN apt update && apt install -y \
   libssh-4 \
